@@ -78,3 +78,9 @@ hogwarts.forEach(({ firstName, lastName, house }) => {
   }
 });
 
+// Task 2
+hogwarts.forEach(({ firstName, lastName, occupation, pet }) => {
+  if (occupation === "Teacher" && pet !== null) {
+    console.log(`${firstName} ${lastName}`);
+  }
+});
