@@ -58,7 +58,9 @@ function render() {
   table.deleteRow(n);
 }
 
-  }
+}
+
+  
   //insert updated row and cells
   let length = myLibrary.length;
   for (let i = 0; i < length; i++) {
@@ -77,15 +79,8 @@ function render() {
     changeBut.id = i;
     changeBut.className = "btn btn-success";
     wasReadCell.appendChild(changeBut);
-    let readStatus = "";
-    if (myLibrary[i].check) {
-  readStatus = "Yes";
-} else {
-  readStatus = "No";
-}
+    changeBut.innerText = myLibrary[i].check ? "Yes" : "No";
 
-    }
-    changeBut.innerText = readStatus;
 
     changeBut.addEventListener("click", function () {
       myLibrary[i].check = !myLibrary[i].check;
@@ -94,7 +89,6 @@ function render() {
 
     //add delete button to every row and render again
     let delButton = document.createElement("button");
-delButton.id = i + 5;
 delButton.className = "btn btn-warning";
 delButton.innerHTML = "Delete";
 deleteCell.appendChild(delButton);
@@ -104,6 +98,7 @@ delButton.addEventListener("click", function () {
   myLibrary.splice(i, 1);
   render();
 });
+
 
     
   }
