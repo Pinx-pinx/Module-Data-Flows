@@ -53,13 +53,13 @@ function Book(title, author, pages, check) {
 function render() {
   let table = document.getElementById("display");
   let rowsNumber = table.rows.length;
-  //delete old table
-  for (let n = rowsNumber - 1; n > 0; n--) {
-  table.deleteRow(n);
-}
 
-  
-  //insert updated row and cells
+  // Delete old table rows (except header)
+  for (let n = rowsNumber - 1; n > 0; n--) {
+    table.deleteRow(n);
+  }
+
+  // Insert updated rows
   let length = myLibrary.length;
   for (let i = 0; i < length; i++) {
     let row = table.insertRow(1);
@@ -68,36 +68,32 @@ function render() {
     let pagesCell = row.insertCell(2);
     let wasReadCell = row.insertCell(3);
     let deleteCell = row.insertCell(4);
+
     titleCell.innerHTML = myLibrary[i].title;
     authorCell.innerHTML = myLibrary[i].author;
     pagesCell.innerHTML = myLibrary[i].pages;
 
-    //add and wait for action for read/unread button
+    // Read/unread button
     let changeBut = document.createElement("button");
-    changeBut.id = i;
     changeBut.className = "btn btn-success";
-    wasReadCell.appendChild(changeBut);
     changeBut.innerText = myLibrary[i].check ? "Yes" : "No";
-
+    wasReadCell.appendChild(changeBut);
 
     changeBut.addEventListener("click", function () {
       myLibrary[i].check = !myLibrary[i].check;
       render();
     });
 
-    //add delete button to every row and render again
+    // Delete button
     let delButton = document.createElement("button");
-delButton.className = "btn btn-warning";
-delButton.innerHTML = "Delete";
-deleteCell.appendChild(delButton);
+    delButton.className = "btn btn-warning";
+    delButton.innerHTML = "Delete";
+    deleteCell.appendChild(delButton);
 
-delButton.addEventListener("click", function () {
-  alert(`You've deleted title: ${myLibrary[i].title}`);
-  myLibrary.splice(i, 1);
-  render();
-});
-
-
-} 
+    delButton.addEventListener("click", function () {
+      alert(`You've deleted title: ${myLibrary[i].title}`);
+      myLibrary.splice(i, 1);
+      render();
+    });
   }
-
+}
