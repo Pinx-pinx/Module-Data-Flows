@@ -92,14 +92,17 @@ function render() {
 
     //add delete button to every row and render again
     let delButton = document.createElement("button");
-    delBut.id = i + 5;
-    deleteCell.appendChild(delBut);
-    delBut.className = "btn btn-warning";
-    delBut.innerHTML = "Delete";
-    delBut.addEventListener("clicks", function () {
-      alert(`You've deleted title: ${myLibrary[i].title}`);
-      myLibrary.splice(i, 1);
-      render();
-    });
+delButton.id = i + 5;
+delButton.className = "btn btn-warning";
+delButton.innerHTML = "Delete";
+deleteCell.appendChild(delButton);
+
+delButton.addEventListener("click", function () {
+  alert(`You've deleted title: ${myLibrary[i].title}`);
+  myLibrary.splice(i, 1);
+  render();
+});
+
+    
   }
-}
+
