@@ -62,7 +62,7 @@ function render() {
   // Insert updated rows
   let length = myLibrary.length;
   for (let i = 0; i < length; i++) {
-    let row = table.insertRow(1);
+    let row = table.insertRow(-1);
     let titleCell = row.insertCell(0);
     let authorCell = row.insertCell(1);
     let pagesCell = row.insertCell(2);
@@ -74,15 +74,20 @@ function render() {
     pagesCell.innerHTML = myLibrary[i].pages;
 
     // Read/unread button
-    let changeBut = document.createElement("button");
-    changeBut.className = "btn btn-success";
-    changeBut.innerText = myLibrary[i].check ? "Yes" : "No";
-    wasReadCell.appendChild(changeBut);
+let changeBut = document.createElement("button");
+changeBut.className = "btn";
+changeBut.innerText = myLibrary[i].check ? "Yes" : "No";
 
-    changeBut.addEventListener("click", function () {
-      myLibrary[i].check = !myLibrary[i].check;
-      render();
-    });
+// Set color based on read status
+changeBut.classList.add(myLibrary[i].check ? "btn-success" : "btn-danger");
+
+wasReadCell.appendChild(changeBut);
+
+changeBut.addEventListener("click", function () {
+  myLibrary[i].check = !myLibrary[i].check;
+  render();
+});
+
 
     // Delete button
     let delButton = document.createElement("button");
