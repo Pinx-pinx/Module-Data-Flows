@@ -58,8 +58,6 @@ function render() {
   table.deleteRow(n);
 }
 
-}
-
   
   //insert updated row and cells
   let length = myLibrary.length;
@@ -100,6 +98,6 @@ delButton.addEventListener("click", function () {
 });
 
 
-    
+} 
   }
 
