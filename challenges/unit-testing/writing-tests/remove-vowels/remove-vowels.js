@@ -4,12 +4,9 @@ function removeVowels(word) {
   let result = [];
 
   characters.forEach(function (character) {
+    // Convert character to lowercase for uniformity
     if (
-      character !== "a" &&
-      character !== "o" &&
-      character !== "i" &&
-      character !== "e" &&
-      character !== "u"
+      !["a", "o", "i", "e", "u"].includes(character.toLowerCase())
     ) {
       result.push(character);
     }
@@ -17,6 +14,7 @@ function removeVowels(word) {
 
   return result.join("");
 }
+
 
 module.exports = removeVowels;
 
