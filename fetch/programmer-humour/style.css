@@ -1,0 +1,33 @@
+/* Ensure the body takes up the full height of the viewport */
+html, body {
+  height: 100%;
+  margin: 0; /* Remove default margin */
+}
+
+/* Apply flexbox to center content */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  background-color: #f4f4f9;
+}
+
+/* Style the container of the comic */
+#comic-container {
+  text-align: center;
+}
+
+/* Style the comic image */
+#comic-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+/* Style the error message */
+#error-message {
+  color: red;
+  margin-top: 20px;
+  display: none;
+}
