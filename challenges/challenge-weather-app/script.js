@@ -17,3 +17,7 @@ function getWeather(city) {
       console.error('Error fetching weather data:', error); 
     });
 }
+function displayWeather(data) {
+  const conditionsElement = document.getElementById('conditions');
+  conditionsElement.textContent = `${data.weather[0].description} - ${data.main.temp}°C`;
+}
