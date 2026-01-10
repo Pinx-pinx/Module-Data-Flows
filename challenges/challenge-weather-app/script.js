@@ -34,3 +34,23 @@ function getImages(description) {
       console.error('Error fetching images:', error); 
     });
 }
+
+function displayImages(images) {
+  const thumbsElement = document.getElementById('thumbs');
+  thumbsElement.innerHTML = '';
+
+
+  images.forEach(image => {
+    const imgElement = document.createElement('img');
+    imgElement.classList.add('thumb'); 
+    imgElement.src = image.urls.small; 
+    imgElement.alt = image.alt_description; 
+
+   
+    imgElement.addEventListener('click', () => {
+      displayMainImage(image.urls.full); 
+    });
+
+    thumbsElement.appendChild(imgElement); 
+  });
+}
