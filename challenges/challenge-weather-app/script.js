@@ -54,3 +54,8 @@ function displayImages(images) {
     thumbsElement.appendChild(imgElement); 
   });
 }
+
+function displayMainImage(url) {
+  const photoElement = document.getElementById('photo');
+  photoElement.innerHTML = `<img src="${url}" alt="Main weather image">`;
+}
