@@ -59,3 +59,17 @@ function displayMainImage(url) {
   const photoElement = document.getElementById('photo');
   photoElement.innerHTML = `<img src="${url}" alt="Main weather image">`;
 }
+
+const searchForm = document.getElementById('search');
+searchForm.addEventListener('submit', event => {
+  event.preventDefault(); 
+  const cityInput = document.getElementById('search-tf'); 
+  const city = cityInput.value.trim(); 
+
+  if (city) {
+    getWeather(city); 
+  }
+});
+
+
+getWeather('London');
