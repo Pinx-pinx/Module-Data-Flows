@@ -21,3 +21,16 @@ function displayWeather(data) {
   const conditionsElement = document.getElementById('conditions');
   conditionsElement.textContent = `${data.weather[0].description} - ${data.main.temp}°C`;
 }
+function getImages(description) {
+  const imagesUrl = `https://api.unsplash.com/search/photos?query=${description}&client_id=${API_KEY_UNSPLASH}`;
+
+  fetch(imagesUrl)
+    .then(response => response.json()) 
+    .then(data => {
+      console.log(data);
+      displayImages(data.results); 
+    })
+    .catch(error => {
+      console.error('Error fetching images:', error); 
+    });
+}
